@@ -19,17 +19,25 @@ public class StudentTest {
 	
 	@Before
 	public void init(){
+		//创建配置对象
 		Configuration config = new Configuration().configure();
+		//创建服务注册对象
 		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(config.getProperties()).buildServiceRegistry();
+		//创建会话工厂对象
 		sessionFactory = config.buildSessionFactory(serviceRegistry);
+		//创建会话对象
 		session = sessionFactory.openSession();
+		//开启事务
 		transaction = session.beginTransaction();
 	}
 	
 	@After
 	public void destroy(){
+		//提交事务
 		transaction.commit();
+		//关闭会话
 		session.close();
+		//关闭会话工厂
 		sessionFactory.close();
 	}
 	
