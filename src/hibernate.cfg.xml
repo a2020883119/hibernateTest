@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        									
+    	<!-- 账号 -->
+    	<property name="connection.username">test</property>
+    	<!-- 密码 -->
+    	<property name="connection.password">123456</property>
+    	
+    	<!-- 加载jdbc驱动 -->
+    	<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+    	<!-- oracle jdbc uri -->                 
+    	<property name="connection.url">jdbc:oracle:thin:@localhost:1521:test</property>
+
+    	
+    	<!-- 程序执行时显示真正的sql语句 -->
+    	<property name="show_sql">true</property>
+    	<!-- 设置数据库方言 数据库方言使用Oracle10Dialect -->   	
+    	<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+    	<!-- 自动建表 -->
+    	<property name="hbm2ddl.auto">create</property>
+    	
+    	<mapping resource="StudentEntity.hbm.xml"/>
+    	
+    </session-factory>
+</hibernate-configuration>
